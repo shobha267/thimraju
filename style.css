@@ -1031,6 +1031,14 @@ footer {
     .hero h1 { font-size: 3.5rem; }
     .footer-grid { grid-template-columns: repeat(2, 1fr); }
     .footer-col h3, .footer-col h4 { font-size: 1.2rem; }
+    .hero {
+        height: auto !important;
+        min-height: unset !important;
+        padding-top: 100px !important;
+        padding-bottom: 40px !important;
+        display: flex !important;
+        align-items: flex-start !important; /* Align content to top instead of centering */
+    }
 }
 
 @media (max-width: 768px) {
