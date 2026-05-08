@@ -1027,18 +1027,21 @@ footer {
     nav { gap: 0.5rem; }
 }
 
-@media (max-width: 1024px) {
-    .hero h1 { font-size: 3.5rem; }
-    .footer-grid { grid-template-columns: repeat(2, 1fr); }
-    .footer-col h3, .footer-col h4 { font-size: 1.2rem; }
+@media (max-width: 1200px) {
     .hero {
         height: auto !important;
-        min-height: unset !important;
-        padding-top: 100px !important;
-        padding-bottom: 40px !important;
+        min-height: 0 !important;
+        padding-top: 140px !important;
+        padding-bottom: 60px !important;
         display: flex !important;
-        align-items: flex-start !important; /* Align content to top instead of centering */
+        align-items: flex-start !important;
     }
+    .hero h1 { font-size: 3.5rem; }
+}
+
+@media (max-width: 1024px) {
+    .footer-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-col h3, .footer-col h4 { font-size: 1.2rem; }
 }
 
 @media (max-width: 768px) {
