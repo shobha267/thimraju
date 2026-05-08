@@ -735,12 +735,23 @@ footer {
     margin-bottom: 1.2rem;
     color: #cbd5e1;
     align-items: flex-start;
+    min-width: 0;
+}
+
+.footer-contact-info li span {
+    word-break: break-word;
+    overflow-wrap: break-word;
+    min-width: 0;
+    flex: 1;
+    font-size: 0.9rem;
+    line-height: 1.6;
 }
 
 .footer-contact-info i {
     color: var(--secondary-color);
     font-size: 1.1rem;
     margin-top: 4px;
+    flex-shrink: 0;
 }
 
 /* Office Hours */
@@ -1019,6 +1030,7 @@ footer {
 @media (max-width: 1024px) {
     .hero h1 { font-size: 3.5rem; }
     .footer-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-col h3, .footer-col h4 { font-size: 1.2rem; }
 }
 
 @media (max-width: 768px) {
@@ -1028,5 +1040,7 @@ footer {
     .contact-grid { grid-template-columns: 1fr; }
     .hero-btns { flex-direction: column; }
     .process-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .footer-col h3, .footer-col h4 { font-size: 1.1rem; }
 }
 
