@@ -168,4 +168,44 @@ document.addEventListener('DOMContentLoaded', () => {
             link.classList.add('active');
         });
     });
+
+    // 8. Dynamic Scroll-Driven Horizontal Card Shift (Parallax)
+    const coursesWrapper = document.querySelector('.courses-wrapper');
+    const coursesGrid = document.querySelector('.courses-grid');
+    if (coursesWrapper && coursesGrid) {
+        window.addEventListener('scroll', () => {
+            const rect = coursesWrapper.getBoundingClientRect();
+            const viewportHeight = window.innerHeight;
+            if (rect.top < viewportHeight && rect.bottom > 0) {
+                // Smooth scroll-driven translation offset
+                const scrollFactor = (viewportHeight - rect.top) * 0.18; // multiplier controls parallax speed
+                coursesGrid.style.setProperty('--scroll-offset', `${-scrollFactor}px`);
+            }
+        });
+    }
+
+    // 9. Premium Interactive 3D Tilt Effect for Course Cards
+    const cards = document.querySelectorAll('.course-card');
+    cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left; 
+            const y = e.clientY - rect.top;  
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            // Limit tilt angle to max 12 degrees
+            const rotateX = ((centerY - y) / centerY) * 12;
+            const rotateY = ((x - centerX) / centerX) * 12;
+            
+            card.style.transform = `translateY(-12px) scale(1.03) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            card.style.transition = 'transform 0.08s ease-out'; // Fast tracking during hover
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = '';
+            card.style.transition = 'all 0.5s cubic-bezier(0.16, 1, 0.3, 1)'; // Smooth float/wave recovery
+        });
+    });
 });
